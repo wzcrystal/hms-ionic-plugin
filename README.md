@@ -30,10 +30,10 @@ ionic指令插件
   ```javascript
       <hms-photo-view img-list="imgList" slide-index="index" img-url="url" close-modal="closeModal()"></hms-photo-view>
   ```
-  >img-list：存储预览图片的数组
-  >slide-index：当前预览图片的索引，当点击某张图片时，传入该图片的索引，使指令在第一次加载时顺利切换到该索引的图片，否则会默认展示第一张
-  >img-url：img-list图片数组中表示图片路径的字段名
-  >close-modal：关闭图片预览modal框的方法
+  >img-list：存储预览图片的数组</br>
+  >slide-index：当前预览图片的索引，当点击某张图片时，传入该图片的索引，使指令在第一次加载时顺利切换到该索引的图片，否则会默认展示第一张</br>
+  >img-url：img-list图片数组中表示图片路径的字段名</br>
+  >close-modal：关闭图片预览modal框的方法</br>
   5. 页面控制器中的调用注意事项：
       >在显示modal的方法中需要调用 $ionicSlideBoxDelegate.slide(index);$ionicSlideBoxDelegate.update(); 这两行代码。</br></br>
       >>$ionicSlideBoxDelegate.slide(index)：是用来处理点击某张图片时，指令的slideBox组件顺利切换到当前图片位置，这是因为在modal中指令加载一次之后，后续在显示与隐藏modal中不会再重新加载指令，因此指令不会主动调用方法切换图片，故而在显示modal处调用该代码来解决图片定位问题。</br></br>
