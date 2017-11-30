@@ -1,0 +1,26 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Lov">
+  <ion-content>
+    <hms-lov ng-model="address"
+             select-item="item"
+             lov-id="addressLov"
+             lov-label="地址"
+             page-size="10"
+             field-show="address"
+             data="getAddressLov(page, pageSize, conditionValue)">
+    </hms-lov>
+    <ion-item class="item item-input item-icon-right">
+      <div class="input-label">页面值</div>
+      <input type="text" ng-model="address">
+    </ion-item>
+    <ion-item class="item item-input item-icon-right">
+      <div class="input-label">选择对象</div>
+      <p>{{item}}</p>
+    </ion-item>
+  </ion-content>
+</ion-view>

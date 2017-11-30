@@ -1,0 +1,18 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="sign">
+  <ion-content>
+    <!--<button class="button" >打开签名-->
+    <hms-sign ng-model="signData"></hms-sign>
+    <!--</button>-->
+    <ion-item class="item item-input item-icon-right">
+      <div class="input-label">base64</div>
+      <p>{{signData}}</p>
+    </ion-item>
+    <image src="{{signData}}" width="200" height="200"></image>
+  </ion-content>
+</ion-view>

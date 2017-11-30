@@ -1,0 +1,22 @@
+<div class="modal">
+  <div class="bar bar-header" align-title="center">
+    <h1 class="title">请选择{{config.lovLabel}}</h1>
+    <div class="buttons">
+      <a class="button icon-right ion-close button-clear button-dark" ng-click="closeLov()"></a>
+    </div>
+  </div>
+  <div class="bar bar-subheader">
+    <input type="search" class="item-input-wrapper" ng-model="conditionValue" placeholder="请输入搜索条件">
+    <div class="buttons" ng-click="search()">
+      <a class="button icon-right ion-search button-clear button-dark"></a>
+    </div>
+  </div>
+
+  <ion-content has-bouncing="false" overflow-scroll="true" class="has-subheader">
+    <ion-refresher pulling-text="正在刷新数据..." on-refresh="search()"></ion-refresher>
+    <div class="list">
+      <div class="item" ng-repeat="item in rows" ng-click="selectValue(item)">{{item[config.fieldShow]}}</div>
+    </div>
+    <ion-infinite-scroll ng-if="loadMoreDataFlag" on-infinite="loadMore()" immediate-check="false" distance="1%"></ion-infinite-scroll>
+  </ion-content>
+</div>

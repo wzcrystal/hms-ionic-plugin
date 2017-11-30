@@ -1,0 +1,63 @@
+插件培训内容
+
+1.bower下载插件
+	1.下载插件代码到项目
+		方式1：
+		1.添加bower.json
+		2.执行bower install
+		方式2：
+		bower install angular-echarts --save这样直接会把插件下载下来，并且将配置添加到bower.json里面
+	2.修改gulpfile.js，gulp编译命令，编译的时候，将插件相关的js.css复制到项目运行目录。
+	3.修改index.html，添加插件依赖
+	4.根据readme配置插件，使用插件
+
+2.为什么要写插件
+	1、	提高代码的可重用性，减少重复的编码工作；
+	2、	避免需求变更，要修改各个地方；
+	3、	简化编码工作；
+
+3.如何开发插件 directive
+	介绍
+			它就相当于为我们写了公共的自定义DOM元素或CLASS属性或ATTR属性，并且它不只是单单如此，你还可以在它的基础上
+		来操作scope、绑定事件、更改样式等。通过这个Directive，我们可以封装很多公共指令，比如分页指令、自动补全指令等等。
+		然后在HTML页面里只需要简单的写一行代码就可以实现很多强大的功能。
+	编译过程
+			首先加载angularjs库，查找到ng-app指令，从而找到应用的边界，
+		根据ng-app划定的作用域来调用$compile服务进行编译，angularjs会遍历整个HTML文档，并根据js中指令的定义来处理在页面
+		上声明的各个指令按照指令的优先级(priority)排列，根据指令中的配置参数(template，place，transclude等)转换DOM然后就开始按顺序执行各指令的compile函数（如果指令上有定义compile函数）对模板自身进行转换
+		注意：此处的compile函数是我们指令中配置的，跟上面说的$compile服务不一样。每个compile函数执行完后都会返回一个link函数，
+		所有的link函数会合成一个大的link函数然后这个大的link函数就会被执行，主要做数据绑定，
+		通过在DOM上注册监听器来动态修改scope中的数据，或者是使用$watchs监听 scope中的变量来修改DOM，
+		从而建立双向绑定等等。若我们的指令中没有配置compile函数，那我们配置的link函数就会运行，
+		她做的事情大致跟上面complie返回之后所有的link函数合成的的大的link函数差不多。
+		所以：在指令中compile与link选项是互斥的，如果同时设置了这两个选项，那么就会把compile所返回的函数当做是链接函数，
+		而link选项本身就会被忽略掉
+	资料：
+		1、	http://www.jb51.net/article/83051.htm
+		2、	https://segmentfault.com/a/1190000005851663
+
+	重点：
+	scope
+		false 儿子继承父亲的值，改变父亲的值，儿子的值也随之变化，反之亦如此。
+		true 儿子继承父亲的值，改变父亲的值，儿子的值随之变化，但是改变儿子的值，父亲的值不变
+		{} 配置
+			@ 绑定一个局部 scope 属性到当前 dom 节点的属性值。结果总是一个字符串，因为 dom 属性是字符串。
+			= 通过 directive 的 attr 属性的值在局部 scope 的属性和父 scope 属性名之间建立双向绑定。
+			& 提供一种方式执行一个表达式在父 scope 的上下文中。如果没有指定 attr 名称，则属性名称为相同的本地名称。
+
+4.开发后如何发布到bower上
+	先把插件放在公网上，然后执行如下代码
+	bower register hand-ionic-plugin  https://github.com/coder-zhw/hand-ionic-plugin
+
+	http://blog.csdn.net/itpinpai/article/details/49932151
+
+
+
+作业：
+	1.修改Lov插件，实现功能：能通过配置修改Lov的样式
+	2.从零开始自己写个插件，具体功能自己想
+
+
+
+
+

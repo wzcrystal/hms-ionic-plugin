@@ -1,0 +1,21 @@
+<div class="modal">
+  <div class="bar bar-header" align-title="center">
+    <h1 class="title">签字</h1>
+    <div class="buttons">
+      <a class="button icon-right ion-close button-clear button-dark" ng-click="closeSign()"></a>
+    </div>
+  </div>
+
+  <ion-content scroll="false" has-bouncing="false" class="has-header has-footer">
+    <!--<div class="hms-sign">-->
+    <div class="hms-sign-cav">
+      <canvas class="hms-sign-cav-bg"></canvas>
+    </div>
+    <!--</div>-->
+  </ion-content>
+  <div class="bar bar-footer">
+    <button class="button" ng-click="redo()">撤销</button>
+    <button class="button" ng-click="redraw()">重画</button>
+    <button class="button" ng-click="save()">保存</button>
+  </div>
+</div>
