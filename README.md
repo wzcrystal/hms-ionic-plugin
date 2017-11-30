@@ -6,6 +6,7 @@ ionic指令插件
 使用说明：
   1. 在index.html中引入指令的photoView.directive.js与photoView.service.js，也可集成到项目中的js文件中；
   2. 在app.js的config中配置指令的配置参数，也可在单独的控制中配置，配置详情如下：
+  ```javascripts
       var config = {
             hasPagePoint: true, //是否需要小圆点,默认为 true
             bgColor: '#000',  //背景颜色，默认黑色
@@ -16,6 +17,7 @@ ionic指令插件
             scrollHeight: window.screen.height  //图片预览高度，默认为手机屏幕高度
       };
       hmsPhotoViewProvider.setConfig($scope.imageConfig);
+  ```
   3. 图片预览采用modal的形式弹出，因此页面需要写modal代码，如下：
       <script id="image-modal.html" type="text/ng-template">
         <div class="modal">
