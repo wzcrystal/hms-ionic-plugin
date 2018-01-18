@@ -1,6 +1,59 @@
 angular.module('starter.controllers', [])
 
-  .controller('DashCtrl', function ($scope, $q) {
+  .controller('DashCtrl', function ($scope, $timeout, $ionicScrollDelegate) {
+    //var height=window.screen.height;
+    $scope.blue=[]
+    for(var i=0;i<15;i++){
+      $scope.blue.push('blue');
+    }
+
+    $timeout(function(){
+      var contentheight=$('.parent').height()-50;
+      console.log(contentheight);
+      $('.slidbox,.slider').css('height',contentheight+'px');
+      $ionicScrollDelegate.freezeScroll(true);
+    });
+
+    $('.parent').scroll(function(){
+      var _this = $(this);
+      var parentHeight = $('.parent').height();
+      var scrollTotalHeight = $(this)[0].scrollHeight;
+      /*console.log('parentHeight:'+parentHeight);
+      console.log('_this.scrollTop():'+_this.scrollTop());
+      console.log('scrollTotalHeight:'+scrollTotalHeight);*/
+      if((_this.scrollTop()+parentHeight)>=scrollTotalHeight){
+        console.log('滚动到底部');
+         $('.box,.scroll').css('overflow-y','auto');
+      }else{
+        $('.box,.scroll').css('overflow-y','hidden');
+      }
+    })
+
+    $scope.scrollFun = function(){
+      var top= $ionicScrollDelegate.getScrollPosition().top;
+      var parentHeight = $('.parent').height();
+      var scrollTotalHeight = $('.parent')[0].scrollHeight;
+      console.log('parentHeight:'+parentHeight);
+      console.log('_this.scrollTop():'+top);
+      console.log('scrollTotalHeight:'+scrollTotalHeight);
+      if((top+parentHeight)>=scrollTotalHeight){
+        console.log('滚动到底部');
+        $('.box').css('overflow-y','auto');
+      }else{
+        $('.box').css('overflow-y','hidden');
+      }
+    }
+
+    $scope.moredata = true;
+
+    $scope.loadMore = function(){
+      console.log('上拉加载');
+      /*$scope.moredata = false;*/
+      for(var i=0;i<2;i++){
+        $scope.blue.push('more');
+      }
+      $scope.$broadcast('scroll.infiniteScrollComplete');
+    }
 
   })
 

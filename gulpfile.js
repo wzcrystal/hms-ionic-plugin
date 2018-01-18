@@ -3,6 +3,10 @@ var sass = require('gulp-sass');
 var cleanCss = require('gulp-clean-css');
 var rename = require('gulp-rename');
 var runSequence = require('gulp-run-sequence');
+var $ = require('gulp-load-plugins')({
+  pattern: ['gulp-*', 'lazypipe', 'del', 'gulp-run-sequence']
+});
+var browserSync = require('browser-sync');//即时刷新
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -64,4 +68,12 @@ gulp.task('build-plugin', ['plugin-js', 'plugin-sass', 'plugin-html']);
 gulp.task('release-plugin', function(done){
   dist = 'release';
   runSequence('build-plugin',done);
+});
+
+//服务命令
+gulp.task('serve',['watch'], function (callback) {
+  $.runSequence('build-plugin', callback);     //开发环境
+  browserSync.init({
+    server: 'www'
+  })
 });

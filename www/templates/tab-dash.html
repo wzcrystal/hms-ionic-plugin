@@ -1,21 +1,177 @@
 <ion-view view-title="Dashboard">
-  <ion-content>
-    Dashboard
-    <!--<hms-lov ng-model="address"-->
-             <!--select-item="item"-->
-             <!--lov-id="addressLov"-->
-             <!--lov-label="地址"-->
-             <!--page-size="10"-->
-             <!--field-show="address"-->
-             <!--data="getAddressLov(page, pageSize, conditionValue)">-->
-    <!--</hms-lov>-->
-    <!--<ion-item class="item item-input item-icon-right">-->
-      <!--<div class="input-label">页面值</div>-->
-      <!--<input type="text" ng-model="address">-->
-    <!--</ion-item>-->
-    <!--<ion-item class="item item-input item-icon-right">-->
-      <!--<div class="input-label">选择对象</div>-->
-      <!--<p>{{item}}</p>-->
-    <!--</ion-item>-->
-  <!--</ion-content>-->
+ <!-- <ion-content class="has-header parent has-tabs" scroll="true"  on-scroll="scrollFun()" delegate-handle="parent">
+      <div class="head-one">
+        <p class="title">在响应式表单组件中，添加自定义验证器相当简单</p>
+        <p>2018-01-18</p>
+      </div>
+      <div class="head-two">
+        <span>tab1</span>
+        <span>tab2</span>
+        <span>tab3</span>
+        <span>tab4</span>
+        <span>tab5</span>
+        <span>tab6</span>
+      </div>
+      <div class="slidbox">
+        <ion-slide-box show-pager="false">
+          <ion-slide>
+            <div class="box blue">
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+              <h1>BLUE</h1>
+            </div>
+          </ion-slide>
+          <ion-slide>
+            <div class="box yellow">
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+              <h1>YELLOW</h1>
+            </div>
+          </ion-slide>
+          <ion-slide on-slide-changed="slideHasChanged(index)">
+            <div class="box pink">
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+              <h1>PINK</h1>
+            </div>
+          </ion-slide>
+        </ion-slide-box>
+      </div>
+    </ion-content>
+  -->
+  <div class="parent">
+    <div class="head-one">
+      <p class="title">在响应式表单组件中，添加自定义验证器相当简单</p>
+      <p>2018-01-18</p>
+    </div>
+    <div class="head-two">
+      <span>tab1</span>
+      <span>tab2</span>
+      <span>tab3</span>
+      <span>tab4</span>
+      <span>tab5</span>
+      <span>tab6</span>
+    </div>
+    <div class="slidbox">
+      <ion-slide-box show-pager="false">
+        <ion-slide>
+          <div class="box blue">
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+            <h1>BLUE</h1>
+
+          </div>
+
+          <!--<ion-content class="box blue" overflow-scroll="true">
+
+            <h1 ng-repeat="blue in blue track by $index">{{blue}}</h1>
+
+            <ion-infinite-scroll
+              ng-if="moredata"
+              on-infinite="loadMore()"
+              immediate-check="false"
+            >
+            </ion-infinite-scroll>
+          </ion-content>-->
+        </ion-slide>
+        <ion-slide>
+          <div class="box yellow">
+            <h1>YELLOW</h1>
+            <h1>YELLOW</h1>
+          </div>
+        </ion-slide>
+        <ion-slide on-slide-changed="slideHasChanged(index)">
+          <div class="box pink">
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+            <h1>PINK</h1>
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+    </div>
+  </div>
+
 </ion-view>

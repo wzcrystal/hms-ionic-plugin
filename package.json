@@ -3,11 +3,15 @@
   "version": "0.0.1",
   "description": "An Ionic project",
   "devDependencies": {
+    "browser-sync": "^2.23.5",
+    "del": "^3.0.0",
     "gulp": "^3.5.6",
     "gulp-clean-css": "^3.7.0",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-rename": "^1.2.0",
+    "gulp-run-sequence": "^0.3.2",
     "gulp-sass": "^3.1.0",
-    "gulp-run-sequence":"^0.3.2"
+    "lazypipe": "^1.0.1"
   },
   "dependencies": {
     "@ionic/pro": "1.0.12",

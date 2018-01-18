@@ -2,3 +2,61 @@
 select option{
   padding-top:100px;
 }
+h1{
+  color:#fff;
+}
+.parent{
+  position: absolute;
+  top:44px;
+  overflow: auto;
+  width:100%;
+  bottom:50px;
+}
+.head-one{
+ /* margin-top: 44px;*/
+  padding:15px;
+  position: relative;
+  background-color: #4b8bf4;
+  line-height: 1.5;
+  color: #fff;
+}
+.head-one .title{
+  font-size: 20px;
+  font-weight: bold;
+}
+.head-two{
+  overflow-x: auto;
+  height:auto;
+  white-space: nowrap;
+  border-bottom:1px solid #ddd;
+}
+.head-two span{
+  display: inline-block;
+  height:100%;
+  width:80px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 16px;
+}
+.slider{
+  /*height:500px;*/
+}
+.box{
+  color:#fff;
+  height: 100%;
+  padding: 15px;
+  overflow-y: hidden;
+}
+.box.blue{
+  background-color: blue;
+}
+.box.yellow{
+  background-color: yellow;
+}
+.box.pink{
+  background-color: pink;
+}
+
+.scroll{
+  overflow-y: hidden;
+}
