@@ -35,7 +35,7 @@ gulp.task('watch', ['sass'], function() {
 });
 
 // var dist = 'www/lib/hand-ionic-plugin-lov';
-var dist = 'www/lib';
+var dist = 'www/lib/plugins';
 // scss编译后的css
 gulp.task('plugin-sass', function (done) {
    gulp.src("src/**/*.scss")

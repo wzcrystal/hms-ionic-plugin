@@ -38,6 +38,8 @@
       $scope.maxZoom = config.maxZoom;
       $scope.hasPagePoint = config.hasPagePoint;
 
+      $scope.$watch()
+
       $scope.slideHasChanged = slideHasChanged; //图片切换完成时
       $scope.reset = reset; //重新设置滚动框大小
       $scope.closeImageModal = closeImageModal; //关闭
@@ -97,10 +99,19 @@
         imgList: '=imgList',
         slideIndex: '=slideIndex',
         imgUrl: '@imgUrl',
-        closeModal: '&closeModal'
+        closeModal: '&closeModal',
+        flag: '=flag'
       },
-      compile: compileFn,
+      //compile: compileFn,
       controller: controllerFn,
+      link: function (scope, element, attr) {
+        console.log('init333');
+        console.log('init', scope.flag)
+
+        scope.$watch('flag', function (val) {
+          console.log(val)
+        })
+      }
     };
   }
 })(angular);
