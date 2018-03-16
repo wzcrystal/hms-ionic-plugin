@@ -59,25 +59,6 @@ angular.module('starter.controllers', [])
 
   .controller('ChatsCtrl', function ($scope, Chats) {
 
-    $scope.chats = Chats.all();
-    $scope.remove = function (chat) {
-      Chats.remove(chat);
-    };
-  })
-
-  .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
-    $scope.chat = Chats.get($stateParams.chatId);
-  })
-
-  .controller('AccountCtrl', function ($scope) {
-    $scope.settings = {
-      enableFriends: true
-    };
-  })
-
-  .controller('PluginCtrl', function ($scope, $http) {
-
-
     $scope.txtCompare = function(){
       var txt1='除非承租方向出租方申请并获得出租方事先书面同意外，在租赁期内，承租方不得以固定物料或不透明物品遮挡商铺橱窗以及面对外街、走廊、行人通道或入口大堂的橱窗玻璃。承租方应以出租方满意的风格和方式布置商铺店面玻璃（如有）及陈列橱窗。承租方在收到出租方对其展示提出反对意见的通知后，立即改变或更换有关摆设。在营业时间内，承租方应保持商铺面向街道及大厦内公用区域的店面玻璃、陈列橱窗以及商店标记的照明，并且允许出租方控制通向店面玻璃、陈列橱窗以及商店标记的电路开关。';
       var txt2='承租方不得以固定物料或不透明物品遮挡商铺橱窗以及面对外街、走廊、行人通道或入口大堂的橱窗玻璃。承租方应以出租方满意的风格和方式布置商铺店面玻璃（如有）及陈列橱窗。除非承租方向出租方申请并获得出租方事先书面同意外，在租赁期外。'
@@ -146,8 +127,9 @@ angular.module('starter.controllers', [])
       $('#txt1').append(txt1Arr.join('。'));
       $('#txt2').append(txt2Arr.join('。'));
     }
+    $scope.txtCompare();
 
-    var txt1='除非承租方向出租方，申请并获得出租方事先书面同意外。';
+   /* var txt1='除非承租方向出租方，申请并获得出租方事先书面同意外。';
     var txt2='承租方，申请并获得出租方事先书面同意外。';
     var txtSplit=['。', '；', '，'];
     console.log(txt1.split('。'))
@@ -186,15 +168,23 @@ angular.module('starter.controllers', [])
     }
 
     var txtArr=[txt1,txt2];
-    $scope.txtCompare(txtArr,txtSplit,0);
-
     $('#txt1').append(txtArr[0]);
     $('#txt2').append(txtArr[1]);
     console.log(txtArr);
+    $scope.txtCompare(txtArr,txtSplit,0);*/
+  })
 
+  .controller('ChatDetailCtrl', function ($scope, $stateParams, Chats) {
+    $scope.chat = Chats.get($stateParams.chatId);
+  })
 
+  .controller('AccountCtrl', function ($scope) {
+    $scope.settings = {
+      enableFriends: true
+    };
+  })
 
-
+  .controller('PluginCtrl', function ($scope, $http) {
 
   })
   .controller('PluginLovCtrl', function ($scope, DataService) {
