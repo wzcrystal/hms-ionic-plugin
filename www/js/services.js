@@ -109,4 +109,44 @@ angular.module('starter.services', [])
       defer.resolve(response);
       return defer.promise;//data;//defer.promise;
     }
-  });
+  })
+
+.factory('DeferService', function($q){
+  var factory = {
+    funA:funA,
+    funB:funB,
+    funC:funC
+  }
+
+  return factory;
+
+  function funA(num){
+    var defer = $q.defer();
+    if(num<5){
+      defer.resolve('funA success');
+    }else{
+      defer.reject('funA error');
+    }
+    return defer.promise;
+  }
+
+  function funB(num){
+    var defer = $q.defer();
+    if(num<5){
+      defer.resolve('funB success');
+    }else{
+      defer.reject('funB error');
+    }
+    return defer.promise;
+  }
+
+  function funC(num){
+    var defer = $q.defer();
+    if(num<5){
+      defer.resolve('funC success');
+    }else{
+      defer.reject('funC error');
+    }
+    return defer.promise;
+  }
+});

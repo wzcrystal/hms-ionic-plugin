@@ -253,4 +253,52 @@ angular.module('starter.controllers', [])
       //$scope.modal=null;
     }
   })
+
+  /*angular延迟*/
+  .controller('DeferCtrl', function ($scope, DeferService ,$q) {
+
+    DeferService.funA(8).then(function(success){
+      console.log(success);
+    },function(err){
+      console.log(err);
+    });
+
+    DeferService.funA(3).then(function(success){
+      console.log(success);
+      return DeferService.funB(8);
+    },function(err){
+      console.log(err);
+      return DeferService.funB(8);
+    }).then(function(success){
+      console.log(success);
+      return DeferService.funC(3);
+    },function(err){
+      console.log(err);
+      return DeferService.funC(3);
+    }).then(function(success){
+      console.log(success);
+    },function(err){
+      console.log(err); //打印funB()的错误信息
+    });
+
+
+    $q.all(
+      {
+        funA:DeferService.funA(8), //调用失败
+        funB:DeferService.funB(3)  //正常情况下是调用成功，但由于funA调用失败，固该方法也是失败
+      })
+    .then(function(success){
+      console.log(success);
+    },function(err){
+      console.log(err);
+    })
+
+    var val=10;
+    $q.when(val)
+      .then(function(success){
+        console.log(success);
+      },function(err){
+        console.log(err);
+      })
+  });
 ;

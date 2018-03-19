@@ -114,6 +114,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             controller: 'AccountCtrl'
           }
         }
+      })
+      .state('defer', {
+        url: '/defer',
+        templateUrl: 'templates/angular_defer/angular_defer.html',
+        controller: 'DeferCtrl'
       });
 
     // if none of the above states are matched, use this as the fallback
